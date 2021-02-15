@@ -1,0 +1,3 @@
+---
+# The name of the S3 object corresponding to the Tanium system package
+package_object_name: taniumclient_7.4.2.2073-{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}_amd64.deb
