@@ -3,3 +3,5 @@
   hosts: all
   roles:
     - role: ansible-role-venom-tanium
+      vars:
+        server_name: tanium.example.com
