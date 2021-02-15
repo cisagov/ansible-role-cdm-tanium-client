@@ -20,8 +20,8 @@ variable "production_objects" {
   type        = list(string)
   description = "The Tanium system package objects inside the production bucket."
   default = [
-    "burpsuite_pro.license",
-    "burpsuite_pro_linux_v2020_11.sh",
+    "TaniumClient-*",
+    "taniumclient_*",
   ]
 }
 
@@ -35,8 +35,8 @@ variable "staging_objects" {
   type        = list(string)
   description = "The Tanium system packages inside the staging bucket."
   default = [
-    "burpsuite_pro.license",
-    "burpsuite_pro_linux_v2020_11.sh",
+    "TaniumClient-*",
+    "taniumclient_*",
   ]
 }
 
