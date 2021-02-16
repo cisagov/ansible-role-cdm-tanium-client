@@ -10,7 +10,7 @@ module "user" {
     aws.images-staging-ssm                 = aws.images_staging_ssm
   }
 
-  entity = "ansible-role-venom-tanium"
+  entity = "ansible-role-venom-tanium-client"
   # The TF module will error if we don't put at least one value here.
   # This build user does not need to access any SSM parameters, so we
   # just place a dummy value here.
