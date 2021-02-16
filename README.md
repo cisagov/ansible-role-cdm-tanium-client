@@ -60,11 +60,18 @@ None.
 
 ## Role Variables ##
 
-None.
+* `install_directory` - the directory where Tanium is installed.
+  Defaults to "/opt/Tanium/TaniumClient".
+* `server_name` - the hostname or IP of the Tanium server.  Required.
+* `server_port` - the port on which the Tanium server is listening.
+  Defaults to 17472.
+* `third_party_bucket_name` - the name of the AWS S3 bucket where
+  third-party software is located.  Defaults to
+  "cisa-cool-third-party-production".
 
 ## Dependencies ##
 
-None.
+* [cisagov/ansible-role-venom-certificates](https://github.com/cisagov/ansible-role-venom-certificates)
 
 ## Example Playbook ##
 
