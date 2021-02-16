@@ -1,8 +1,8 @@
-# ansible-role-venom-tanium #
+# ansible-role-venom-tanium-client #
 
-[![GitHub Build Status](https://github.com/cisagov/ansible-role-venom-tanium/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-venom-tanium/actions)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-venom-tanium.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-venom-tanium/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-venom-tanium.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-venom-tanium/context:python)
+[![GitHub Build Status](https://github.com/cisagov/ansible-role-venom-tanium-client/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-venom-tanium-client/actions)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-venom-tanium-client.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-venom-tanium-client/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-venom-tanium-client.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-venom-tanium-client/context:python)
 
 This is an Ansible role for installing
 [Tanium](https://www.tanium.com/), specifically for the CISA Virtual
@@ -51,7 +51,7 @@ of the Project Setup README.
 
 If you have appropriate permissions for the repository you can view
 existing secrets on the [appropriate
-page](https://github.com/cisagov/ansible-role-venom-tanium/settings/secrets)
+page](https://github.com/cisagov/ansible-role-venom-tanium-client/settings/secrets)
 in the repository's settings.
 
 ## Requirements ##
@@ -75,7 +75,7 @@ Here's how to use it in a playbook:
   become: yes
   become_method: sudo
   roles:
-    - venom_tanium
+    - venom_tanium_client
 ```
 
 ## Contributing ##
