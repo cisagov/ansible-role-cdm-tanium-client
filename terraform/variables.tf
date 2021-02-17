@@ -20,6 +20,7 @@ variable "production_objects" {
   type        = list(string)
   description = "The Tanium system package objects inside the production bucket."
   default = [
+    "RPM-GPG-KEY-Tanium",
     "TaniumClient-*",
     "taniumclient_*",
   ]
@@ -35,6 +36,7 @@ variable "staging_objects" {
   type        = list(string)
   description = "The Tanium system packages inside the staging bucket."
   default = [
+    "RPM-GPG-KEY-Tanium",
     "TaniumClient-*",
     "taniumclient_*",
   ]

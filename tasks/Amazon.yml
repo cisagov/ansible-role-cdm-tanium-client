@@ -1,0 +1,5 @@
+---
+- name: Install Tanium (Amazon Linux)
+  ansible.builtin.yum:
+    name:
+      - /tmp/{{ package_object_name }}
