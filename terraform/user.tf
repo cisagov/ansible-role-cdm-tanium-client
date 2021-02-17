@@ -20,7 +20,7 @@ module "user" {
 }
 
 # Attach third-party S3 bucket read-only policy to the production
-# EC2AMICreate role
+# role used by the test user
 resource "aws_iam_role_policy_attachment" "thirdpartybucketread_production" {
   provider = aws.images_production_provisionaccount
 
@@ -29,7 +29,7 @@ resource "aws_iam_role_policy_attachment" "thirdpartybucketread_production" {
 }
 
 # Attach third-party S3 bucket read-only policy to the staging
-# EC2AMICreate role
+# role used by the test user
 resource "aws_iam_role_policy_attachment" "thirdpartybucketread_staging" {
   provider = aws.images_staging_provisionaccount
 
