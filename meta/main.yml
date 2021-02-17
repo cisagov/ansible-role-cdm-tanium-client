@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Shane Frasier
-  description: Install Tanium for CISA VENOM
+  description: Install Tanium client for CISA VENOM
   company: CISA Cyber Assessments
   galaxy_tags:
     - tanium
