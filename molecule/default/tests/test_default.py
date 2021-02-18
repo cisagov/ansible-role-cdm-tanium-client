@@ -12,7 +12,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 ).get_hosts("all")
 
 
-def test_tainum_installed(host):
+def test_tanium_installed(host):
     """Test that TaniumClient was installed."""
     dir_full_path = "/opt/Tanium/TaniumClient"
     directory = host.file(dir_full_path)
