@@ -12,7 +12,27 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 ).get_hosts("all")
 
 
-@pytest.mark.parametrize("x", [True])
-def test_packages(host, x):
-    """Run a dummy test, just to show what one would look like."""
-    assert x
+def test_tanium_installed(host):
+    """Test that TaniumClient was installed."""
+    dir_full_path = "/opt/Tanium/TaniumClient"
+    directory = host.file(dir_full_path)
+    assert directory.exists
+    assert directory.is_directory
+    # Make sure that the directory is not empty
+    assert host.run_expect([0], f'[ -n "$(ls -A {dir_full_path})" ]')
+
+
+def test_tanium_enabled(host):
+    """Test that TaniumClient is enabled."""
+    assert host.service("taniumclient").is_enabled
+
+
+@pytest.mark.parametrize(
+    "key, value",
+    [("ServerName", "tan-cosrvr-01.venom.cisa.gov"), ("ServerPort", "17472")],
+)
+def test_tanium_config(host, key, value):
+    """Test that TaniumClient is configured."""
+    assert value in host.check_output(
+        f"/opt/Tanium/TaniumClient/TaniumClient config get {key}"
+    )
