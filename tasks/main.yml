@@ -10,7 +10,6 @@
       paths:
         - "{{ role_path }}/vars"
 
-# Check if Tanium is already installed
 - name: Check if Tanium is already installed
   ansible.builtin.stat:
     path: "{{ install_directory }}"
@@ -19,7 +18,7 @@
 - name: Install Tanium
   block:
     - name: Grab Tanium system package from S3
-      ansible.builtin.aws_s3:
+      amazon.aws.aws_s3:
         bucket: "{{ third_party_bucket_name }}"
         object: "{{ package_object_name }}"
         dest: /tmp/{{ package_object_name }}
