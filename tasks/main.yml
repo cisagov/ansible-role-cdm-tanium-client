@@ -10,7 +10,6 @@
       paths:
         - "{{ role_path }}/vars"
 
-# Check if Tanium is already installed
 - name: Check if Tanium is already installed
   ansible.builtin.stat:
     path: "{{ install_directory }}"
