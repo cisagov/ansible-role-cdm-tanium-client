@@ -3,3 +3,11 @@
   hosts: all
   roles:
     - role: ansible-role-venom-tanium-client
+  tasks:
+    # We want to force the Tanium client service to go ahead and
+    # start, since that will cause the initialization file to be read.
+    # We can then test that the registration secret was configured.
+    - name: Start the Tanium client service
+      ansible.builtin.service:
+        name: taniumclient
+        state: started

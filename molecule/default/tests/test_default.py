@@ -29,7 +29,11 @@ def test_tanium_enabled(host):
 
 @pytest.mark.parametrize(
     "key, value",
-    [("ServerName", "tan-cosrvr-01.venom.cisa.gov"), ("ServerPort", "17472")],
+    [
+        ("RegistrationSecret", "(protected)"),
+        ("ServerName", "tan-cosrvr-01.venom.cisa.gov"),
+        ("ServerPort", "17472"),
+    ],
 )
 def test_tanium_config(host, key, value):
     """Test that TaniumClient is configured."""
