@@ -17,14 +17,17 @@
 
 - name: Install Tanium
   block:
-    - name: Grab Tanium system package from S3
+    - name: Grab Tanium system package and initialization file from S3
       amazon.aws.aws_s3:
         bucket: "{{ third_party_bucket_name }}"
-        object: "{{ package_object_name }}"
-        dest: /tmp/{{ package_object_name }}
+        object: "{{ item }}"
+        dest: /tmp/{{ item }}
         mode: get
       become: no
       delegate_to: localhost
+      loop:
+        - "{{ package_object_name }}"
+        - "{{ initialization_file_object_name }}"
 
     - name: Copy the Tanium system package
       ansible.builtin.copy:
@@ -49,12 +52,21 @@
     - name: Set the Tanium server port
       ansible.builtin.command: "{{ install_directory }}/TaniumClient config set-number ServerPort {{ server_port }}"
 
-    - name: Delete local copy of Tanium system package
+    - name: Copy the Tanium initialization file
+      ansible.builtin.copy:
+        dest: "{{ install_directory }}/{{ initialization_file_object_name }}"
+        mode: 0600
+        src: /tmp/{{ initialization_file_object_name }}
+
+    - name: Delete local copy of Tanium system package and initialization file
       ansible.builtin.file:
-        path: /tmp/{{ package_object_name }}
+        path: /tmp/{{ item }}
         state: absent
       become: no
       delegate_to: localhost
+      loop:
+        - "{{ package_object_name }}"
+        - "{{ initialization_file_object_name }}"
 
     - name: Delete remote copy of Tanium system package
       ansible.builtin.file:
