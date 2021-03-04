@@ -21,6 +21,7 @@ variable "production_objects" {
   description = "The Tanium system package objects inside the production bucket."
   default = [
     "RPM-GPG-KEY-Tanium",
+    "tanium-init.dat",
     "TaniumClient-*",
     "taniumclient_*",
   ]
@@ -37,6 +38,7 @@ variable "staging_objects" {
   description = "The Tanium system packages inside the staging bucket."
   default = [
     "RPM-GPG-KEY-Tanium",
+    "tanium-init.dat",
     "TaniumClient-*",
     "taniumclient_*",
   ]
