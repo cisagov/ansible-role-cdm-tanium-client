@@ -73,6 +73,7 @@ None.
 
 ## Dependencies ##
 
+* [cisagov/ansible-role-dhs-certificates](https://github.com/cisagov/ansible-role-dhs-certificates)
 * [cisagov/ansible-role-venom-certificates](https://github.com/cisagov/ansible-role-venom-certificates)
 
 ## Example Playbook ##
