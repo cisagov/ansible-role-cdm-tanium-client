@@ -1,13 +1,13 @@
-# ansible-role-venom-tanium-client #
+# ansible-role-cdm-tanium-client #
 
-[![GitHub Build Status](https://github.com/cisagov/ansible-role-venom-tanium-client/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-venom-tanium-client/actions)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-venom-tanium-client.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-venom-tanium-client/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-venom-tanium-client.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-venom-tanium-client/context:python)
+[![GitHub Build Status](https://github.com/cisagov/ansible-role-cdm-tanium-client/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-cdm-tanium-client/actions)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-cdm-tanium-client.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-cdm-tanium-client/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-cdm-tanium-client.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-cdm-tanium-client/context:python)
 
 This is an Ansible role for installing [Tanium
 client](https://docs.tanium.com/client/client/index.html),
-specifically for the CISA Virtual Enterprise Network Operations
-Manager (VENOM) environment.
+specifically for the CISA CDM (Continuous Diagnostics and Mitigation)
+environment.
 
 ## Pre-requisites ##
 
@@ -52,7 +52,7 @@ of the Project Setup README.
 
 If you have appropriate permissions for the repository you can view
 existing secrets on the [appropriate
-page](https://github.com/cisagov/ansible-role-venom-tanium-client/settings/secrets)
+page](https://github.com/cisagov/ansible-role-cdm-tanium-client/settings/secrets)
 in the repository's settings.
 
 ## Requirements ##
@@ -73,7 +73,7 @@ None.
 ## Dependencies ##
 
 * [cisagov/ansible-role-dhs-certificates](https://github.com/cisagov/ansible-role-dhs-certificates)
-* [cisagov/ansible-role-venom-certificates](https://github.com/cisagov/ansible-role-venom-certificates)
+* [cisagov/ansible-role-cdm-certificates](https://github.com/cisagov/ansible-role-cdm-certificates)
 
 ## Example Playbook ##
 
@@ -84,7 +84,7 @@ Here's how to use it in a playbook:
   become: yes
   become_method: sudo
   roles:
-    - venom_tanium_client
+    - cdm_tanium_client
 ```
 
 ## Contributing ##

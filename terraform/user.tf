@@ -10,10 +10,10 @@ module "user" {
     aws.staging    = aws.images_staging_provisionaccount
   }
 
-  role_description = "A role that can be assumed to allow for CI testing of ansible-role-venom-tanium-client via Molecule."
-  role_name        = "Test-ansible-role-venom-tanium-client"
+  role_description = "A role that can be assumed to allow for CI testing of ansible-role-cdm-tanium-client via Molecule."
+  role_name        = "Test-ansible-role-cdm-tanium-client"
   tags             = var.tags
-  user_name        = "test-ansible-role-venom-tanium-client"
+  user_name        = "test-ansible-role-cdm-tanium-client"
 }
 
 # Attach third-party S3 bucket read-only policy to the production
