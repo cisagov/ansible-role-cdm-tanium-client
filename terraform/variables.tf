@@ -50,6 +50,6 @@ variable "tags" {
 
   default = {
     Team        = "VM Fusion - Development"
-    Application = "ansible-role-venom-tanium-client testing"
+    Application = "ansible-role-cdm-tanium-client testing"
   }
 }

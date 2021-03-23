@@ -2,7 +2,7 @@
 - name: Converge
   hosts: all
   roles:
-    - role: ansible-role-venom-tanium-client
+    - role: ansible-role-cdm-tanium-client
       vars:
         server_name: tanium.example.com
   tasks:

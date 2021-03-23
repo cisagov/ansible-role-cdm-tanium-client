@@ -1,6 +1,6 @@
 ---
 # A Tanium initialization file containing Tanium configuration
-# parameter values necessary to successfully connect to the VENOM
+# parameter values necessary to successfully connect to the CISA CDM
 # Tanium server
 initialization_file_object_name: tanium-init.dat
 
