@@ -61,19 +61,19 @@ None.
 
 ## Role Variables ##
 
-* `install_directory` - the directory where Tanium is installed.
+- `install_directory` - the directory where Tanium is installed.
   Defaults to "/opt/Tanium/TaniumClient".
-* `server_name` - the hostname or IP of the Tanium server.  Required.
-* `server_port` - the port on which the Tanium server is listening.
+- `server_name` - the hostname or IP of the Tanium server.  Required.
+- `server_port` - the port on which the Tanium server is listening.
   Defaults to 17472.
-* `third_party_bucket_name` - the name of the AWS S3 bucket where
+- `third_party_bucket_name` - the name of the AWS S3 bucket where
   third-party software is located.  Defaults to
   "cisa-cool-third-party-production".
 
 ## Dependencies ##
 
-* [cisagov/ansible-role-dhs-certificates](https://github.com/cisagov/ansible-role-dhs-certificates)
-* [cisagov/ansible-role-cdm-certificates](https://github.com/cisagov/ansible-role-cdm-certificates)
+- [cisagov/ansible-role-dhs-certificates](https://github.com/cisagov/ansible-role-dhs-certificates)
+- [cisagov/ansible-role-cdm-certificates](https://github.com/cisagov/ansible-role-cdm-certificates)
 
 ## Example Playbook ##
 
