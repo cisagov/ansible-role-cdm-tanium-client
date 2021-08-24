@@ -64,21 +64,12 @@ None.
 
 ## Role Variables ##
 
-- `install_directory` - the directory where Tanium is installed.
-  Defaults to "/opt/Tanium/TaniumClient".
-- `server_name` - the hostname or IP of the Tanium server.  Required.
-- `server_port` - the port on which the Tanium server is listening.
-  Defaults to 17472.
-- `third_party_bucket_name` - the name of the AWS S3 bucket where
-  third-party software is located.  Defaults to
-  "cisa-cool-third-party-production".
-
-<!--
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| optional_variable | Describe its purpose. | `default_value` | No |
-| required_variable | Describe its purpose. | n/a | Yes |
--->
+| install_directory | The directory where Tanium is installed. | `/opt/Tanium/TaniumClient` | No |
+| server_name | The hostname or IP of the Tanium server. | n/a | Yes |
+| server_port | The port on which the Tanium server is listening. | `17472` | No |
+| third_party_bucket_name | The name of the AWS S3 bucket where third-party software is located. | `cisa-cool-third-party-production` | No |
 
 ## Dependencies ##
 
