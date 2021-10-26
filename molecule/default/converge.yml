@@ -1,11 +1,12 @@
 ---
 - name: Converge
   hosts: all
-  roles:
-    - role: ansible-role-cdm-tanium-client
-      vars:
-        server_name: tanium.example.com
   tasks:
+    - name: Include ansible-role-cdm-tanium-client
+      ansible.builtin.include_role:
+        name: ansible-role-cdm-tanium-client
+        vars:
+          server_name: tanium.example.com
     # We want to force the Tanium client service to go ahead and
     # start, since that will cause the initialization file to be read.
     # We can then test that the registration secret was configured.
