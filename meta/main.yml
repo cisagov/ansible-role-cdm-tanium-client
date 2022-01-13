@@ -23,12 +23,13 @@ galaxy_info:
       versions:
         - stretch
         - buster
+        - bullseye
         # Kali linux isn't an option here, but it is based on
         # Debian Testing:
         # https://www.kali.org/docs/policy/kali-linux-relationship-with-debian
         #
-        # Debian Bullseye is not yet supported by Tanium
-        # - bullseye
+        # Debian Bookworm is not yet supported by Tanium
+        - bookworm
     - name: Fedora
       versions:
         - 32
