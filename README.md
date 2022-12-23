@@ -1,8 +1,7 @@
 # ansible-role-cdm-tanium-client #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-role-cdm-tanium-client/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-cdm-tanium-client/actions)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-cdm-tanium-client.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-cdm-tanium-client/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-cdm-tanium-client.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-cdm-tanium-client/context:python)
+[![CodeQL](https://github.com/cisagov/ansible-role-cdm-tanium-client/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-cdm-tanium-client/actions/workflows/codeql-analysis.yml)
 
 This is an Ansible role for installing [Tanium
 client](https://docs.tanium.com/client/client/index.html),
@@ -84,8 +83,10 @@ Here's how to use it in a playbook:
 - hosts: all
   become: yes
   become_method: sudo
-  roles:
-    - cdm_tanium_client
+  tasks:
+    - name: Install Tanium client for CDM
+      ansible.builtin.include_role:
+        name: cdm_tanium_client
 ```
 
 ## Contributing ##
