@@ -41,7 +41,9 @@ galaxy_info:
       versions:
         - bionic
         - focal
-        - jammy
+        # We do not yet have a package for Ubuntu 22.  Presumably we
+        # could obtain one from the CDM folks.
+        # - jammy
   role_name: cdm_tanium
 
 dependencies:

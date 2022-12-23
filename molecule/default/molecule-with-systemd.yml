@@ -117,15 +117,17 @@ platforms:
     privileged: yes
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
-  - cgroupns_mode: host
-    command: /lib/systemd/systemd
-    image: geerlingguy/docker-ubuntu2204-ansible:latest
-    name: ubuntu-22-systemd
-    platform: amd64
-    pre_build_image: yes
-    privileged: yes
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+  # We do not yet have a package for Ubuntu 22.  Presumably we could
+  # obtain one from the CDM folks.
+  # - cgroupns_mode: host
+  #   command: /lib/systemd/systemd
+  #   image: geerlingguy/docker-ubuntu2204-ansible:latest
+  #   name: ubuntu-22-systemd
+  #   platform: amd64
+  #   pre_build_image: yes
+  #   privileged: yes
+  #   volumes:
+  #     - /sys/fs/cgroup:/sys/fs/cgroup:rw
 provisioner:
   name: ansible
   inventory:
