@@ -1,3 +1,0 @@
----
-# The name of the S3 object corresponding to the Tanium system package
-package_object_name: TaniumClient-7.4.2.2073-1.amzn2.x86_64.rpm

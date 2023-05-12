@@ -26,26 +26,27 @@ galaxy_info:
   min_ansible_version: "2.10"
   namespace: cisagov
   platforms:
-    - name: Amazon Linux 2
-      versions:
-        - any
+    # We do not have a package for Amazon Linux 2023.
+    # - name: Amazon Linux 2023
+    #   versions:
+    #     - any
     - name: Debian
       versions:
-        - stretch
         - buster
         # We do not yet have a Debian package for Bullseye.
         # Presumably we could obtain one from the CDM folks.
         # - bullseye
-        # Kali linux isn't an option here, but it is based on
-        # Debian Testing:
-        # https://www.kali.org/docs/policy/kali-linux-relationship-with-debian
-        #
         # Debian Bookworm is not yet supported by Tanium
         # - bookworm
     - name: Fedora
       versions:
         - "36"
         - "37"
+    # Kali is based on Debian Bookworm, which is not yet supported by
+    # Tanium.
+    # - name: Kali
+    #   versions:
+    #     - "2023"
     - name: Ubuntu
       versions:
         - bionic
