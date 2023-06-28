@@ -1,7 +1,7 @@
 ---
 dependencies:
-  - src: https://github.com/cisagov/ansible-role-dhs-certificates
-    name: dhs_certificates
+  - name: dhs_certificates
+    src: https://github.com/cisagov/ansible-role-dhs-certificates
 galaxy_info:
   author: Shane Frasier
   company: CISA Cyber Assessments

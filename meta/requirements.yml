@@ -1,3 +1,4 @@
 ---
-- src: https://github.com/cisagov/ansible-role-cdm-certificates
-  name: cdm_certificates
+- name: cdm_certificates
+  src: https://github.com/cisagov/ansible-role-cdm-certificates
+  version: lineage/skeleton
