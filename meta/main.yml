@@ -27,9 +27,9 @@ galaxy_info:
   namespace: cisagov
   platforms:
     # We do not have a package for Amazon Linux 2023.
-    # - name: Amazon Linux 2023
+    # - name: Amazon Linux
     #   versions:
-    #     - any
+    #     - "2023"
     - name: Debian
       versions:
         - buster
@@ -40,8 +40,8 @@ galaxy_info:
         # - bookworm
     - name: Fedora
       versions:
-        - "36"
         - "37"
+        - "38"
     # Kali is based on Debian Bookworm, which is not yet supported by
     # Tanium.
     # - name: Kali
@@ -49,7 +49,6 @@ galaxy_info:
     #     - "2023"
     - name: Ubuntu
       versions:
-        - bionic
         - focal
         # We do not yet have a package for Ubuntu 22.  Presumably we
         # could obtain one from the CDM folks.
