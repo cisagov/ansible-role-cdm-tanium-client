@@ -49,22 +49,28 @@
     - name: Check the Tanium server hostname
       ansible.builtin.command: "{{ install_directory }}/TaniumClient config get ServerName"
       changed_when: false
-      failed_when: tanium_server_name.rc != 0
-      register: tanium_server_name
+      failed_when: get_tanium_server_name.rc != 0
+      register: get_tanium_server_name
 
     - name: Set the Tanium server hostname
       ansible.builtin.command: "{{ install_directory }}/TaniumClient config set-string ServerName {{ server_name }}"
-      when: tanium_server_name.stdout != server_name
+      changed_when: set_tanium_hostname.rc == 0
+      failed_when: set_tanium_hostname.rc != 0
+      register: set_tanium_hostname
+      when: get_tanium_server_name.stdout != server_name
 
     - name: Check the Tanium server port
       ansible.builtin.command: "{{ install_directory }}/TaniumClient config get ServerPort"
       changed_when: false
-      failed_when: tanium_server_port.rc != 0
-      register: tanium_server_port
+      failed_when: get_tanium_server_port.rc != 0
+      register: get_tanium_server_port
 
     - name: Set the Tanium server port
       ansible.builtin.command: "{{ install_directory }}/TaniumClient config set-number ServerPort {{ server_port }}"
-      when: tanium_server_port.stdout != server_port
+      changed_when: set_tanium_server_port_cmd.rc == 0
+      failed_when: set_tanium_server_port_cmd.rc != 0
+      register: set_tanium_server_port_cmd
+      when: get_tanium_server_port.stdout != server_port
 
     - name: Copy the Tanium initialization file
       ansible.builtin.copy:
