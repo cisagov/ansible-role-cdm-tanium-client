@@ -12,7 +12,7 @@
 
 - name: Check if Tanium is already installed
   ansible.builtin.stat:
-    path: "{{ install_directory }}"
+    path: "{{ cdm_tanium_install_directory }}"
   register: tanium_directory
 
 - name: Install Tanium
@@ -20,7 +20,7 @@
   block:
     - name: Grab Tanium system package and initialization file from S3
       amazon.aws.aws_s3:
-        bucket: "{{ third_party_bucket_name }}"
+        bucket: "{{ cdm_tanium_third_party_bucket_name }}"
         object: "{{ item }}"
         dest: /tmp/{{ item }}
         mode: get
@@ -28,7 +28,7 @@
       delegate_to: localhost
       loop:
         - "{{ package_object_name }}"
-        - "{{ initialization_file_object_name }}"
+        - "{{ cdm_tanium_initialization_file_object_name }}"
 
     - name: Copy the Tanium system package
       ansible.builtin.copy:
@@ -48,36 +48,36 @@
             - "{{ role_path }}/tasks"
 
     - name: Check the Tanium server hostname
-      ansible.builtin.command: "{{ install_directory }}/TaniumClient config get ServerName"
+      ansible.builtin.command: "{{ cdm_tanium_install_directory }}/TaniumClient config get ServerName"
       changed_when: false
       failed_when: get_tanium_server_name.rc != 0
       register: get_tanium_server_name
 
     - name: Set the Tanium server hostname
-      ansible.builtin.command: "{{ install_directory }}/TaniumClient config set-string ServerName {{ server_name }}"
-      changed_when: set_tanium_hostname.rc == 0
-      failed_when: set_tanium_hostname.rc != 0
-      register: set_tanium_hostname
-      when: get_tanium_server_name.stdout != server_name
+      ansible.builtin.command: "{{ cdm_tanium_install_directory }}/TaniumClient config set-string ServerName {{ cdm_tanium_server_name }}"
+      changed_when: set_tanium_server_name.rc == 0
+      failed_when: set_tanium_server_name.rc != 0
+      register: set_tanium_server_name
+      when: get_tanium_server_name.stdout != cdm_tanium_server_name
 
     - name: Check the Tanium server port
-      ansible.builtin.command: "{{ install_directory }}/TaniumClient config get ServerPort"
+      ansible.builtin.command: "{{ cdm_tanium_install_directory }}/TaniumClient config get ServerPort"
       changed_when: false
       failed_when: get_tanium_server_port.rc != 0
       register: get_tanium_server_port
 
     - name: Set the Tanium server port
-      ansible.builtin.command: "{{ install_directory }}/TaniumClient config set-number ServerPort {{ server_port }}"
+      ansible.builtin.command: "{{ cdm_tanium_install_directory }}/TaniumClient config set-number ServerPort {{ cdm_tanium_server_port }}"
       changed_when: set_tanium_server_port_cmd.rc == 0
       failed_when: set_tanium_server_port_cmd.rc != 0
       register: set_tanium_server_port_cmd
-      when: get_tanium_server_port.stdout != server_port
+      when: get_tanium_server_port.stdout != cdm_tanium_server_port
 
     - name: Copy the Tanium initialization file
       ansible.builtin.copy:
-        dest: "{{ install_directory }}/{{ initialization_file_object_name }}"
+        dest: "{{ cdm_tanium_install_directory }}/{{ cdm_tanium_initialization_file_object_name }}"
         mode: 0600
-        src: /tmp/{{ initialization_file_object_name }}
+        src: /tmp/{{ cdm_tanium_initialization_file_object_name }}
 
     - name: Delete local copy of Tanium system package and initialization file
       ansible.builtin.file:
@@ -87,7 +87,7 @@
       delegate_to: localhost
       loop:
         - "{{ package_object_name }}"
-        - "{{ initialization_file_object_name }}"
+        - "{{ cdm_tanium_initialization_file_object_name }}"
 
     - name: Delete remote copy of Tanium system package
       ansible.builtin.file:
