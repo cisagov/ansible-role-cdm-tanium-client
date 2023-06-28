@@ -34,7 +34,9 @@ galaxy_info:
     - name: Fedora
       versions:
         - "37"
-        - "38"
+        # The GPG key we have for the Nessus Agent RPM is not accepted
+        # by Fedora 38.
+        # - "38"
     # Kali is based on Debian Bookworm, which is not yet supported by
     # Tanium.
     # - name: Kali
