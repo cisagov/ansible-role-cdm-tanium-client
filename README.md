@@ -65,10 +65,11 @@ None.
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| install_directory | The directory where Tanium is installed. | `/opt/Tanium/TaniumClient` | No |
-| server_name | The hostname or IP of the Tanium server. | n/a | Yes |
-| server_port | The port on which the Tanium server is listening. | `17472` | No |
-| third_party_bucket_name | The name of the AWS S3 bucket where third-party software is located. | `cisa-cool-third-party-production` | No |
+| cdm_tanium_initialization_file_object_name | A Tanium initialization file containing Tanium configuration parameter values necessary to successfully connect to the Tanium server. | `tanium-init.dat` | No |
+| cdm_tanium_install_directory | The directory where Tanium is installed. | `/opt/Tanium/TaniumClient` | No |
+| cdm_tanium_server_name | The hostname or IP of the Tanium server. | n/a | Yes |
+| cdm_tanium_server_port | The port on which the Tanium server is listening. | `17472` | No |
+| cdm_tanium_third_party_bucket_name | The name of the AWS S3 bucket where third-party software is located. | `cisa-cool-third-party-production` | No |
 
 ## Dependencies ##
 
@@ -109,4 +110,4 @@ with this waiver of copyright interest.
 
 ## Author Information ##
 
-Shane Frasier - <jeremy.frasier@trio.dhs.gov>
+Shane Frasier - <jeremy.frasier@gwe.cisa.dhs.gov>

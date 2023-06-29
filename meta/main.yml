@@ -1,14 +1,7 @@
 ---
 dependencies:
-  - src: https://github.com/cisagov/ansible-role-dhs-certificates
-    name: dhs_certificates
-  # Note that the value of third_party_bucket_name used for this
-  # Ansible role will trickle down to this dependent role.  For
-  # details, see the last paragraph of this section of the Ansible
-  # documentation:
-  # https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#using-roles-at-the-play-level
-  - src: https://github.com/cisagov/ansible-role-cdm-certificates
-    name: cdm_certificates
+  - name: dhs_certificates
+    src: https://github.com/cisagov/ansible-role-dhs-certificates
 galaxy_info:
   author: Shane Frasier
   company: CISA Cyber Assessments
@@ -27,9 +20,9 @@ galaxy_info:
   namespace: cisagov
   platforms:
     # We do not have a package for Amazon Linux 2023.
-    # - name: Amazon Linux 2023
+    # - name: Amazon Linux
     #   versions:
-    #     - any
+    #     - "2023"
     - name: Debian
       versions:
         - buster
@@ -40,8 +33,10 @@ galaxy_info:
         # - bookworm
     - name: Fedora
       versions:
-        - "36"
         - "37"
+        # The GPG key we have for the Nessus Agent RPM is not accepted
+        # by Fedora 38.
+        # - "38"
     # Kali is based on Debian Bookworm, which is not yet supported by
     # Tanium.
     # - name: Kali
@@ -49,7 +44,6 @@ galaxy_info:
     #     - "2023"
     - name: Ubuntu
       versions:
-        - bionic
         - focal
         # We do not yet have a package for Ubuntu 22.  Presumably we
         # could obtain one from the CDM folks.

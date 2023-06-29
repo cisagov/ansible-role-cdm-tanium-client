@@ -1,7 +1,7 @@
 ---
 - name: Grab Tanium system package GPG key from S3
   amazon.aws.aws_s3:
-    bucket: "{{ third_party_bucket_name }}"
+    bucket: "{{ cdm_tanium_third_party_bucket_name }}"
     object: "{{ package_gpg_key_object_name }}"
     dest: /tmp/{{ package_gpg_key_object_name }}
     mode: get
