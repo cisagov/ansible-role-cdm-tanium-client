@@ -1,36 +1,19 @@
 ---
-- name: Grab Tanium system package GPG key from S3
-  amazon.aws.aws_s3:
-    bucket: "{{ cdm_tanium_third_party_bucket_name }}"
-    object: "{{ package_gpg_key_object_name }}"
-    dest: /tmp/{{ package_gpg_key_object_name }}
-    mode: get
-  become: no
-  delegate_to: localhost
-
-- name: Copy the Tanium system package GPG key
-  ansible.builtin.copy:
-    dest: /tmp/{{ package_gpg_key_object_name }}
-    mode: 0700
-    src: /tmp/{{ package_gpg_key_object_name }}
-
 - name: Import Tanium system package GPG key
   ansible.builtin.rpm_key:
-    key: /tmp/{{ package_gpg_key_object_name }}
+    fingerprint: 8CDE 3000 17B9 E7BE 148D  0E62 664B A6EA A420 246B
+    # This is where the Tanium documentation indicates the GPG key to
+    # use:
+    # https://docs.tanium.com/client/client/deployment.html?cloud=false#linux_client
+    #
+    # This documentation points to this link:
+    # https://pgp.mit.edu/pks/lookup?op=vindex&search=0x664BA6EAA420246B
+    #
+    # Unfortunately, pgp.mit.edu is _very_ slow to respond, so instead
+    # I pull the key from keys.opengpg.org.
+    key: https://keys.openpgp.org/vks/v1/by-fingerprint/8CDE300017B9E7BE148D0E62664BA6EAA420246B
 
 - name: Install Tanium
   ansible.builtin.yum:
     name:
       - /tmp/{{ package_object_name }}
-
-- name: Delete local copy of Tanium system package GPG key
-  ansible.builtin.file:
-    path: /tmp/{{ package_gpg_key_object_name }}
-    state: absent
-  become: no
-  delegate_to: localhost
-
-- name: Delete remote copy of Tanium system package GPG key
-  ansible.builtin.file:
-    path: /tmp/{{ package_gpg_key_object_name }}
-    state: absent

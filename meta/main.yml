@@ -26,17 +26,13 @@ galaxy_info:
     - name: Debian
       versions:
         - buster
-        # We do not yet have a Debian package for Bullseye.
-        # Presumably we could obtain one from the CDM folks.
-        # - bullseye
+        - bullseye
         # Debian Bookworm is not yet supported by Tanium
         # - bookworm
     - name: Fedora
       versions:
         - "37"
-        # The GPG key we have for the Nessus Agent RPM is not accepted
-        # by Fedora 38.
-        # - "38"
+        - "38"
     # Kali is based on Debian Bookworm, which is not yet supported by
     # Tanium.
     # - name: Kali
@@ -45,7 +41,5 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - focal
-        # We do not yet have a package for Ubuntu 22.  Presumably we
-        # could obtain one from the CDM folks.
-        # - jammy
+        - jammy
   role_name: cdm_tanium
