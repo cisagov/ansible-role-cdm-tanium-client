@@ -4,4 +4,4 @@
 package_gpg_key_object_name: RPM-GPG-KEY-Tanium
 
 # The name of the S3 object corresponding to the Tanium system package
-package_object_name: TaniumClient-7.4.2.2073-1.rhe8.x86_64.rpm
+package_object_name: TaniumClient-7.4.10.1060-1.rhe9.x86_64.rpm
