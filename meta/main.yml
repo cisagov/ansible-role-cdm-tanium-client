@@ -26,9 +26,7 @@ galaxy_info:
     - name: Debian
       versions:
         - buster
-        # We do not yet have a Debian package for Bullseye.
-        # Presumably we could obtain one from the CDM folks.
-        # - bullseye
+        - bullseye
         # Debian Bookworm is not yet supported by Tanium
         # - bookworm
     - name: Fedora
@@ -45,7 +43,5 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - focal
-        # We do not yet have a package for Ubuntu 22.  Presumably we
-        # could obtain one from the CDM folks.
-        # - jammy
+        - jammy
   role_name: cdm_tanium
