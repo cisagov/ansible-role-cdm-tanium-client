@@ -24,10 +24,9 @@ galaxy_info:
   min_ansible_version: "2.10"
   namespace: cisagov
   platforms:
-    # We do not have a package for Amazon Linux 2023.
-    # - name: Amazon Linux
-    #   versions:
-    #     - "2023"
+    - name: Amazon Linux
+      versions:
+        - "2023"
     - name: Debian
       versions:
         - buster
@@ -38,7 +37,7 @@ galaxy_info:
       versions:
         - "37"
         - "38"
-    # Kali is based on Debian Bookworm, which is not yet supported by
+    # Kali is based on Debian Testing, which is not supported by
     # Tanium.
     # - name: Kali
     #   versions:
